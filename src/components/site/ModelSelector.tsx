@@ -141,7 +141,7 @@ export function ModelSelector() {
         </div>
 
         {/* Size selector + live spec table */}
-        <div className="mt-16 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card">
+        <div className="mt-10 sm:mt-16 rounded-2xl border border-border bg-card p-5 sm:p-8 shadow-card">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h4 className="text-lg font-semibold text-foreground">Available Sizes</h4>
