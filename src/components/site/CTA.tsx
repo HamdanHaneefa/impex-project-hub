@@ -10,7 +10,7 @@ export function CTA() {
             <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-white blur-3xl" />
           </div>
           <div className="relative">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground leading-tight">
               See the IMPEX xSeries in action.
             </h2>
             <p className="mt-4 text-primary-foreground/85 max-w-2xl mx-auto">
