@@ -110,7 +110,6 @@ const audioVideo = [
   { icon: Cpu, title: "Dual-System", description: "Android 14 by default — add an OPS module for Windows on demand." },
 ];
 
-import { Cpu } from "lucide-react";
 
 const connectivity = [
   { icon: Cast, title: "QuickShare & AirPlay", description: "Wireless screen sharing from any device — phone, tablet or laptop." },
