@@ -2,9 +2,9 @@ import { ArrowRight, Phone, Mail } from "lucide-react";
 
 export function CTA() {
   return (
-    <section id="cta" className="py-20 md:py-28 bg-surface-dark text-white" style={{ backgroundColor: "var(--surface-darker)" }}>
+    <section id="cta" className="py-12 sm:py-20 md:py-28 bg-surface-dark text-white" style={{ backgroundColor: "var(--surface-darker)" }}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-primary p-10 sm:p-14 text-center shadow-brand">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-primary p-8 sm:p-14 text-center shadow-brand">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white blur-3xl" />
             <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-white blur-3xl" />
