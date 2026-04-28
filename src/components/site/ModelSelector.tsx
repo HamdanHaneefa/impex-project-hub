@@ -50,16 +50,16 @@ export function ModelSelector() {
   const spec = specs[size];
 
   return (
-    <section id="models" className="py-20 md:py-28 bg-background">
+    <section id="models" className="py-12 sm:py-20 md:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-primary uppercase">
             Choose your model
           </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+          <h2 className="mt-2 sm:mt-3 text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
             One platform. Two purpose-built variants.
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">
             Switch between xLearnAI and xMeetAI to see how each is tailored to its environment.
           </p>
         </div>
