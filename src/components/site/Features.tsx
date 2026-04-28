@@ -28,6 +28,7 @@ import {
   BookOpen,
   ClipboardCheck,
   Camera,
+  Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import classroom from "@/assets/classroom.jpg";
