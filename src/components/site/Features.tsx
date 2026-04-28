@@ -45,9 +45,9 @@ function SectionHeader({
 }) {
   return (
     <div className="max-w-2xl">
-      <p className="text-sm font-semibold tracking-widest uppercase text-primary">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">{title}</h2>
-      {subtitle && <p className="mt-4 text-muted-foreground">{subtitle}</p>}
+      <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-primary">{eyebrow}</p>
+      <h2 className="mt-2 sm:mt-3 text-2xl sm:text-4xl font-bold text-foreground leading-tight">{title}</h2>
+      {subtitle && <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">{subtitle}</p>}
     </div>
   );
 }
@@ -62,15 +62,22 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="group relative rounded-2xl border border-border bg-card p-6 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300">
-      <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-brand">
-        <Icon className="h-5 w-5" />
+    <div className="group relative rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 h-full">
+      <div className="inline-flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-primary text-primary-foreground shadow-brand">
+        <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
       </div>
-      <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
-      <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <h3 className="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-foreground leading-snug">{title}</h3>
+      <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 }
+
+// Section wrapper with consistent mobile-friendly spacing
+const SECTION = "py-12 sm:py-20 md:py-28";
+const CONTAINER = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
+// Image showcase frame — adds breathing room around product visuals
+const IMAGE_FRAME =
+  "relative rounded-2xl sm:rounded-3xl bg-gradient-subtle border border-border p-3 sm:p-5 lg:p-6 shadow-elegant";
 
 const workspaceApps = [
   { icon: Video, label: "Meet" },
