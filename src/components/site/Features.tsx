@@ -52,9 +52,9 @@ function SectionHeader({
 }) {
   return (
     <div className="max-w-3xl mx-auto text-center lg:text-left">
-      <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-primary">{eyebrow}</p>
-      <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">{title}</h2>
-      {subtitle && <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>}
+      <p className="text-[11px] sm:text-sm font-semibold tracking-widest uppercase text-primary">{eyebrow}</p>
+      <h2 className="mt-2 sm:mt-4 text-xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">{title}</h2>
+      {subtitle && <p className="mt-2.5 sm:mt-6 text-xs sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>}
     </div>
   );
 }
@@ -69,22 +69,22 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="group relative rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 h-full">
-      <div className="inline-flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-primary text-primary-foreground shadow-brand">
+    <div className="group relative rounded-lg sm:rounded-2xl border border-border bg-card p-3 sm:p-6 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 h-full">
+      <div className="inline-flex h-8 w-8 sm:h-11 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-primary text-primary-foreground shadow-brand">
         <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
       </div>
-      <h3 className="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-foreground leading-snug">{title}</h3>
-      <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <h3 className="mt-2 sm:mt-4 text-xs sm:text-base font-semibold text-foreground leading-snug">{title}</h3>
+      <p className="mt-1 sm:mt-1.5 text-[11px] sm:text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 }
 
 // Section wrapper with consistent mobile-friendly spacing
-const SECTION = "py-16 sm:py-24 md:py-32";
+const SECTION = "py-10 sm:py-24 md:py-32";
 const CONTAINER = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
 // Image showcase frame — adds breathing room around product visuals
 const IMAGE_FRAME =
-  "relative rounded-2xl sm:rounded-3xl bg-gradient-subtle border border-border p-3 sm:p-5 lg:p-6 shadow-elegant";
+  "relative rounded-xl sm:rounded-3xl bg-gradient-subtle border border-border p-2.5 sm:p-5 lg:p-6 shadow-elegant";
 
 const workspaceApps = [
   { icon: Video, label: "Meet" },
@@ -167,23 +167,23 @@ export function Features() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-6 sm:mt-10 grid grid-cols-3 sm:grid-cols-6 gap-2.5 sm:gap-3">
+            <div className="mt-5 sm:mt-10 grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
               {workspaceApps.map((a) => (
                 <div
                   key={a.label}
-                  className="flex flex-col items-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl border border-border bg-card p-2.5 sm:p-4 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all"
+                  className="flex flex-col items-center gap-1 sm:gap-2 rounded-lg sm:rounded-2xl border border-border bg-card p-2 sm:p-4 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all"
                 >
-                  <div className="h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg sm:rounded-xl bg-accent text-primary">
-                    <a.icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <div className="h-7 w-7 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-md sm:rounded-xl bg-accent text-primary">
+                    <a.icon className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                   </div>
-                  <span className="text-[11px] sm:text-xs font-semibold text-foreground">{a.label}</span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-foreground">{a.label}</span>
                 </div>
               ))}
             </div>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="mt-5 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="mt-4 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
               <FeatureCard icon={ShieldCheck} title="Enhanced Security" description="Latest Android 14 security patches keep your data and meetings safe." />
               <FeatureCard icon={Sparkles} title="Future-Ready Upgrades" description="Continuous OS upgrades and EDLA certification updates." />
               <FeatureCard icon={LayoutGrid} title="Play Store Access" description="Install any productivity or learning app you need." />
@@ -195,7 +195,7 @@ export function Features() {
       {/* Section 2 & 3: Whiteboard + AI */}
       <section id="whiteboard" className={`${SECTION} bg-background`}>
         <div className={CONTAINER}>
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-6 sm:gap-12 lg:gap-16 items-center">
             <Reveal>
               <div>
                 <SectionHeader
@@ -203,14 +203,14 @@ export function Features() {
                   title="A whiteboard, reimagined for the AI era."
                   subtitle="High-density multi-touch, smart recognition and a built-in library of templates — designed to keep your ideas flowing."
                 />
-                <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="mt-4 sm:mt-8 grid grid-cols-2 gap-2 sm:gap-4">
                   {whiteboardFeatures.map((f, i) => (
-                    <div key={f.title} className="rounded-xl border border-border bg-card p-4 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all">
-                      <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground shadow-brand">
-                        <f.icon className="h-4 w-4" />
+                    <div key={f.title} className="rounded-lg border border-border bg-card p-2.5 sm:p-4 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all">
+                      <div className="inline-flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-md sm:rounded-lg bg-gradient-primary text-primary-foreground shadow-brand">
+                        <f.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
-                      <h3 className="mt-3 text-sm font-semibold text-foreground leading-snug">{f.title}</h3>
-                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{f.description}</p>
+                      <h3 className="mt-1.5 sm:mt-3 text-[11px] sm:text-sm font-semibold text-foreground leading-tight">{f.title}</h3>
+                      <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-muted-foreground leading-snug">{f.description}</p>
                     </div>
                   ))}
                 </div>
@@ -224,7 +224,7 @@ export function Features() {
             </Reveal>
           </div>
 
-          <div className="mt-16 sm:mt-24">
+          <div className="mt-10 sm:mt-24">
             <Reveal>
               <SectionHeader
                 eyebrow="03 · WhiteBoard AI"
@@ -232,7 +232,7 @@ export function Features() {
                 subtitle="From OCR and formula recognition to live AI explanations — turn any whiteboard session into structured, searchable knowledge."
               />
             </Reveal>
-            <div className="mt-6 sm:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+            <div className="mt-4 sm:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5">
               {aiFeatures.map((f, i) => (
                 <Reveal key={f.title} delay={i * 0.06}>
                   <FeatureCard {...f} />

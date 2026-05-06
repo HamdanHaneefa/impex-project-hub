@@ -147,7 +147,7 @@ Submitted via IMPEX xSeries Website
                         <FormItem>
                           <FormLabel>Full Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input placeholder="Enter your full name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -161,7 +161,7 @@ Submitted via IMPEX xSeries Website
                         <FormItem>
                           <FormLabel>Phone Number *</FormLabel>
                           <FormControl>
-                            <Input placeholder="+91 98765 43210" {...field} />
+                            <Input placeholder="+91 00000 00000" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -177,7 +177,7 @@ Submitted via IMPEX xSeries Website
                         <FormItem>
                           <FormLabel>Email Address *</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john@example.com" {...field} />
+                            <Input type="email" placeholder="your.email@company.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -191,7 +191,7 @@ Submitted via IMPEX xSeries Website
                         <FormItem>
                           <FormLabel>Organisation *</FormLabel>
                           <FormControl>
-                            <Input placeholder="School / Company Name" {...field} />
+                            <Input placeholder="Your School / Company Name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

@@ -51,28 +51,28 @@ export function ModelSelector() {
   const spec = specs[size];
 
   return (
-    <section id="models" className="py-16 sm:py-24 md:py-32 bg-background">
+    <section id="models" className="py-10 sm:py-24 md:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-primary uppercase">
+          <p className="text-[11px] sm:text-sm font-semibold tracking-widest text-primary uppercase">
             Choose your model
           </p>
-          <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tight">
+          <h2 className="mt-2 sm:mt-4 text-xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tight">
             One platform. Two purpose-built variants.
           </h2>
-          <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-2.5 sm:mt-6 text-xs sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
             Switch between xLearnAI and xMeetAI to see how each is tailored to its environment.
           </p>
         </div>
 
         {/* Variant toggle */}
-        <div className="mt-10 sm:mt-14 flex justify-center">
-          <div className="inline-flex p-1.5 rounded-full bg-muted border border-border shadow-card w-full max-w-md sm:w-auto">
+        <div className="mt-6 sm:mt-14 flex justify-center">
+          <div className="inline-flex p-1 sm:p-1.5 rounded-full bg-muted border border-border shadow-card w-full max-w-md sm:w-auto">
             {(Object.keys(variantData) as Variant[]).map((v) => (
               <button
                 key={v}
                 onClick={() => setVariant(v)}
-                className={`relative flex-1 sm:flex-none px-6 sm:px-10 py-3 text-sm sm:text-base font-semibold rounded-full transition-colors ${
+                className={`relative flex-1 sm:flex-none px-5 sm:px-10 py-2 sm:py-3 text-xs sm:text-base font-semibold rounded-full transition-colors ${
                   variant === v ? "text-primary-foreground" : "text-foreground/70"
                 }`}
               >
@@ -90,8 +90,8 @@ export function ModelSelector() {
         </div>
 
         {/* Variant content */}
-        <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+        <div className="mt-8 sm:mt-16 lg:mt-20">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 lg:gap-16 items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={variant}
@@ -101,21 +101,21 @@ export function ModelSelector() {
                 transition={{ duration: 0.35 }}
                 className="text-center lg:text-left"
               >
-                <div className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-xs sm:text-sm font-semibold text-accent-foreground">
-                  <Icon className="h-4 w-4" />
+                <div className="inline-flex items-center gap-2 rounded-full bg-accent px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-semibold text-accent-foreground">
+                  <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   {variant}
                 </div>
-                <h3 className="mt-4 sm:mt-6 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-snug tracking-tight">
+                <h3 className="mt-3 sm:mt-6 text-xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-snug tracking-tight">
                   {data.tagline}
                 </h3>
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{data.description}</p>
-                <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 max-w-xl mx-auto lg:mx-0">
+                <p className="mt-2 sm:mt-4 text-xs sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{data.description}</p>
+                <ul className="mt-4 sm:mt-8 space-y-2 sm:space-y-4 max-w-xl mx-auto lg:mx-0">
                   {data.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-3 text-left">
-                      <span className="mt-0.5 inline-flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    <li key={h} className="flex items-start gap-2 sm:gap-3 text-left">
+                      <span className="mt-0.5 inline-flex h-4 w-4 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Check className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5" />
                       </span>
-                      <span className="text-sm sm:text-base text-foreground/85 leading-relaxed">{h}</span>
+                      <span className="text-xs sm:text-base text-foreground/85 leading-relaxed">{h}</span>
                     </li>
                   ))}
                 </ul>
@@ -131,15 +131,15 @@ export function ModelSelector() {
                 transition={{ duration: 0.35 }}
                 className="relative"
               >
-                <div className="absolute -inset-6 sm:-inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-[2rem]" />
-                <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-subtle border border-border p-3 sm:p-5 lg:p-6 shadow-elegant">
+                <div className="absolute -inset-4 sm:-inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-[2rem]" />
+                <div className="relative rounded-xl sm:rounded-3xl bg-gradient-subtle border border-border p-2.5 sm:p-5 lg:p-6 shadow-elegant">
                   <img
                     src={data.image}
                     alt={`${variant} in action`}
                     width={1280}
                     height={800}
                     loading="lazy"
-                    className="w-full h-auto rounded-xl sm:rounded-2xl"
+                    className="w-full h-auto rounded-lg sm:rounded-2xl"
                   />
                 </div>
               </motion.div>
@@ -148,18 +148,18 @@ export function ModelSelector() {
         </div>
 
         {/* Size selector + live spec table */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-8 lg:p-10 shadow-card">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
+        <div className="mt-8 sm:mt-16 lg:mt-20 rounded-xl sm:rounded-3xl border border-border bg-card p-4 sm:p-8 lg:p-10 shadow-card">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6">
             <div className="text-center sm:text-left">
-              <h4 className="text-lg sm:text-xl font-semibold text-foreground">Available Sizes</h4>
-              <p className="text-sm text-muted-foreground mt-1">Specs update live with your selection.</p>
+              <h4 className="text-base sm:text-xl font-semibold text-foreground">Available Sizes</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">Specs update live with your selection.</p>
             </div>
-            <div className="inline-flex p-1 rounded-xl bg-muted border border-border self-center sm:self-auto">
+            <div className="inline-flex p-1 rounded-lg sm:rounded-xl bg-muted border border-border self-center sm:self-auto">
               {(Object.keys(specs) as Size[]).map((s) => (
                 <button
                   key={s}
                   onClick={() => setSize(s)}
-                  className={`px-5 sm:px-7 py-2.5 text-sm sm:text-base font-semibold rounded-lg transition-all ${
+                  className={`px-4 sm:px-7 py-2 sm:py-2.5 text-xs sm:text-base font-semibold rounded-md sm:rounded-lg transition-all ${
                     size === s
                       ? "bg-primary text-primary-foreground shadow-brand"
                       : "text-foreground/70 hover:text-foreground"
@@ -176,7 +176,7 @@ export function ModelSelector() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
+            className="mt-4 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
           >
             {[
               { label: "Display Size", value: `${size}"` },
@@ -188,11 +188,11 @@ export function ModelSelector() {
               { label: "Touch Points", value: "20 / 40" },
               { label: "OS", value: "Android 14" },
             ].map((row) => (
-              <div key={row.label} className="rounded-xl bg-muted/50 border border-border p-4 hover:bg-muted transition-colors">
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <div key={row.label} className="rounded-lg sm:rounded-xl bg-muted/50 border border-border p-3 sm:p-4 hover:bg-muted transition-colors">
+                <p className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {row.label}
                 </p>
-                <p className="mt-2 text-base sm:text-lg font-semibold text-foreground">{row.value}</p>
+                <p className="mt-1 sm:mt-2 text-sm sm:text-lg font-semibold text-foreground">{row.value}</p>
               </div>
             ))}
           </motion.div>
