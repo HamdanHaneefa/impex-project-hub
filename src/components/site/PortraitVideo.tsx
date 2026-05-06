@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Play, Volume2, VolumeX } from "lucide-react";
 
 interface PortraitVideoProps {
@@ -8,8 +8,45 @@ interface PortraitVideoProps {
 
 export function PortraitVideo({ src, poster }: PortraitVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return;
+
+    // Use Intersection Observer to load video when it's near viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isLoaded) {
+            // Load video metadata and first frame
+            video.load();
+            setIsLoaded(true);
+            
+            // Set to first frame once metadata is loaded
+            const handleLoadedMetadata = () => {
+              video.currentTime = 0.1;
+            };
+            
+            video.addEventListener("loadedmetadata", handleLoadedMetadata, { once: true });
+          }
+        });
+      },
+      {
+        rootMargin: "200px", // Start loading 200px before entering viewport
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isLoaded]);
 
   const togglePlay = async () => {
     const video = videoRef.current;
@@ -24,7 +61,7 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
         setIsPlaying(false);
       }
     } catch (error) {
-      console.log("Video play interrupted");
+      // Silently handle play interruption
     }
   };
 
@@ -39,8 +76,9 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
 
   return (
     <div
+      ref={containerRef}
       onClick={togglePlay}
-      className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto cursor-pointer group rounded-2xl overflow-hidden shadow-elegant border border-white/10 bg-muted/50"
+      className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto cursor-pointer group rounded-2xl overflow-hidden shadow-elegant border border-white/10 bg-gradient-to-br from-muted/80 to-muted/40"
       style={{ aspectRatio: "9/16" }}
     >
       <video
@@ -50,7 +88,7 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         className="w-full h-full object-cover"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
