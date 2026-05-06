@@ -31,10 +31,15 @@ import {
   Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { PortraitVideo } from "./PortraitVideo";
 
 const classroom = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/e_class.jpeg";
 const meeting = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/edu_ai_learning_app.jpeg";
 const whiteboardAI = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/white_board_ai.jpeg";
+
+// Video URLs
+const zeroBondingVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7602.MOV";
+const aiCameraVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7603.MOV";
 
 function SectionHeader({
   eyebrow,
@@ -190,7 +195,7 @@ export function Features() {
       {/* Section 2 & 3: Whiteboard + AI */}
       <section id="whiteboard" className={`${SECTION} bg-background`}>
         <div className={CONTAINER}>
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 sm:gap-12 lg:gap-16 items-center">
             <Reveal>
               <div>
                 <SectionHeader
@@ -213,18 +218,8 @@ export function Features() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="relative">
-                <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-3xl" />
-                <div className={IMAGE_FRAME}>
-                  <img
-                    src={whiteboardAI}
-                    alt="WhiteBoard AI with smart recognition"
-                    width={1280}
-                    height={800}
-                    loading="lazy"
-                    className="rounded-xl sm:rounded-2xl w-full h-auto"
-                  />
-                </div>
+              <div className="flex justify-center">
+                <PortraitVideo src={zeroBondingVideo} />
               </div>
             </Reveal>
           </div>
@@ -269,7 +264,7 @@ export function Features() {
 
       {/* Section 5: Audio & Video xMeetAI */}
       <section className={`${SECTION} bg-surface-dark text-white`} style={{ backgroundColor: "var(--surface-dark)" }}>
-        <div className={`${CONTAINER} grid lg:grid-cols-2 gap-8 sm:gap-12 items-center`}>
+        <div className={`${CONTAINER} grid lg:grid-cols-[1fr_auto] gap-8 sm:gap-12 items-center`}>
           <Reveal>
             <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-primary-glow">
               05 · Audio & Video — xMeetAI
@@ -293,18 +288,8 @@ export function Features() {
             </div>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-3xl" />
-              <div className="relative rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 p-3 sm:p-5 lg:p-6 backdrop-blur shadow-elegant">
-                <img
-                  src={meeting}
-                  alt="xMeetAI in a corporate boardroom"
-                  width={1280}
-                  height={800}
-                  loading="lazy"
-                  className="rounded-xl sm:rounded-2xl w-full h-auto"
-                />
-              </div>
+            <div className="flex justify-center">
+              <PortraitVideo src={aiCameraVideo} />
             </div>
           </Reveal>
         </div>
