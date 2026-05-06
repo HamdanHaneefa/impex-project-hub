@@ -59,39 +59,34 @@ export function EnquiryForm() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
 
-    // Format the message for WhatsApp and Email
-    const message = `
-🔔 New IMPEX xSeries Enquiry
+    // Format the message for WhatsApp with better structure
+    const message = `*🔔 New IMPEX xSeries Enquiry*
 
+*Customer Details:*
 👤 Name: ${data.name}
 📞 Phone: ${data.phone}
 📧 Email: ${data.email}
 🏢 Organisation: ${data.organisation}
+
+*Product Requirements:*
 📱 Model: ${data.model}
 📏 Size: ${data.size}"
 🔢 Quantity: ${data.quantity}
-📝 Purpose: ${data.purpose}
+
+*Purpose/Requirements:*
+${data.purpose}
 
 ---
-Submitted via IMPEX xSeries Website
-    `.trim();
+_Submitted via IMPEX xSeries Website_
+_${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}_`;
 
     try {
-      // Simulate API call - Replace with actual backend endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
       // WhatsApp Integration (opens WhatsApp with pre-filled message)
       const whatsappNumber = "919778665499"; // IMPEX contact number
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       
-      // Email Integration (opens default email client)
-      const emailSubject = `IMPEX xSeries Enquiry - ${data.name}`;
-      const emailBody = message;
-      const emailUrl = `mailto:ifpd@impexappliances.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-      // Open both WhatsApp and Email
+      // Open WhatsApp
       window.open(whatsappUrl, "_blank");
-      window.open(emailUrl, "_blank");
 
       setIsSuccess(true);
       form.reset();
@@ -132,8 +127,7 @@ Submitted via IMPEX xSeries Website
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Thank you for your enquiry!</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Your request has been sent via WhatsApp and Email. Our team will contact you
-                  shortly.
+                  Your request has been sent via WhatsApp. Our team will contact you shortly.
                 </p>
               </div>
             ) : (
@@ -299,8 +293,7 @@ Submitted via IMPEX xSeries Website
                   </Button>
 
                   <p className="text-xs text-muted-foreground">
-                    * Required fields. Your enquiry will be sent via WhatsApp and Email
-                    simultaneously.
+                    * Required fields. Your enquiry will be sent via WhatsApp.
                   </p>
                 </form>
               </Form>
