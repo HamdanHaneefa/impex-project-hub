@@ -46,10 +46,17 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         className="w-full h-full object-cover"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        onLoadedData={(e) => {
+          // Show first frame as thumbnail
+          const video = e.currentTarget;
+          if (video.readyState >= 2) {
+            video.currentTime = 0.1;
+          }
+        }}
       />
 
       {/* Gradient overlay */}

@@ -99,16 +99,16 @@ export function TechnicalSpecs() {
           </div>
         </Reveal>
 
-        {/* Mobile View - Tabs */}
-        <div className="md:hidden mt-8">
+        {/* Unified Tab View for All Screens */}
+        <div className="mt-8 sm:mt-12 max-w-5xl mx-auto">
           <Reveal delay={0.1}>
             {/* Size Selector */}
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2 sm:gap-3 mb-5 sm:mb-6 justify-center">
               {specsData.map((model) => (
                 <button
                   key={model.size}
                   onClick={() => setSelectedSize(model.size)}
-                  className={`flex-1 py-2.5 px-2 rounded-lg text-sm font-bold transition-all ${
+                  className={`flex-1 max-w-[200px] py-2.5 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl text-sm sm:text-base font-bold transition-all ${
                     selectedSize === model.size
                       ? "bg-primary text-primary-foreground shadow-lg scale-105"
                       : "bg-card border border-border text-muted-foreground hover:bg-muted/50"
@@ -123,22 +123,22 @@ export function TechnicalSpecs() {
             {specsData
               .filter((model) => model.size === selectedSize)
               .map((model) => (
-                <div key={model.size} className="rounded-lg border border-border bg-card shadow-card overflow-hidden">
-                  <div className="bg-gradient-primary px-3.5 py-3">
-                    <h3 className="text-base font-bold text-primary-foreground">
+                <div key={model.size} className="rounded-xl sm:rounded-2xl border border-border bg-card shadow-card overflow-hidden">
+                  <div className="bg-gradient-primary px-4 sm:px-6 py-3 sm:py-4">
+                    <h3 className="text-base sm:text-xl font-bold text-primary-foreground">
                       {model.size} Display
                     </h3>
                   </div>
-                  <div className="p-3 grid grid-cols-2 gap-2">
+                  <div className="p-4 sm:p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3">
                     {Object.entries(model.specs).map(([key, value]) => (
                       <div
                         key={key}
-                        className="rounded-md bg-muted/50 border border-border px-2.5 py-2"
+                        className="rounded-md sm:rounded-lg bg-muted/50 border border-border px-2.5 sm:px-3 py-2 sm:py-2.5"
                       >
-                        <p className="text-[9px] font-semibold uppercase tracking-wide text-muted-foreground leading-tight mb-1">
+                        <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wide text-muted-foreground leading-tight mb-1">
                           {key}
                         </p>
-                        <p className="text-[11px] font-bold text-foreground leading-snug">{value}</p>
+                        <p className="text-[11px] sm:text-xs font-bold text-foreground leading-snug">{value}</p>
                       </div>
                     ))}
                   </div>
@@ -147,38 +147,8 @@ export function TechnicalSpecs() {
           </Reveal>
         </div>
 
-        {/* Desktop View - All Sizes */}
-        <div className="hidden md:block mt-12 sm:mt-16 lg:mt-20 space-y-6 sm:space-y-8">
-          {specsData.map((model, idx) => (
-            <Reveal key={model.size} delay={idx * 0.1}>
-              <div className="rounded-2xl sm:rounded-3xl border border-border bg-card shadow-card overflow-hidden">
-                <div className="bg-gradient-primary px-5 sm:px-8 py-5 sm:py-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-primary-foreground">
-                    {model.size} Display
-                  </h3>
-                </div>
-                <div className="p-5 sm:p-8 lg:p-10">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                    {Object.entries(model.specs).map(([key, value]) => (
-                      <div
-                        key={key}
-                        className="rounded-xl bg-muted/50 border border-border px-4 py-3"
-                      >
-                        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                          {key}
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-foreground">{value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
         <Reveal delay={0.3}>
-          <div className="mt-6 sm:mt-8 rounded-xl bg-accent/50 border border-border px-3 sm:px-6 py-3 sm:py-4 text-center">
+          <div className="mt-6 sm:mt-8 rounded-xl bg-accent/50 border border-border px-3 sm:px-6 py-3 sm:py-4 text-center max-w-5xl mx-auto">
             <p className="text-[10px] sm:text-sm text-muted-foreground leading-relaxed">
               <strong className="text-foreground">Note:</strong> Specifications are subject to
               change without notice. Camera and microphone features are exclusive to xMeetAI

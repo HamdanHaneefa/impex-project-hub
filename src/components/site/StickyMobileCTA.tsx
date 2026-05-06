@@ -41,7 +41,7 @@ export function StickyMobileCTA() {
       }`}
     >
       <a
-        href="https://wa.me/910000000000"
+        href="https://wa.me/919778665499"
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full shadow-elegant hover:shadow-brand transition-all hover:scale-110 active:scale-95"

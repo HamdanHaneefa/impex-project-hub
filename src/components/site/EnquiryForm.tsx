@@ -81,13 +81,13 @@ Submitted via IMPEX xSeries Website
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // WhatsApp Integration (opens WhatsApp with pre-filled message)
-      const whatsappNumber = "910000000000"; // Replace with actual number
+      const whatsappNumber = "919778665499"; // IMPEX contact number
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       
       // Email Integration (opens default email client)
       const emailSubject = `IMPEX xSeries Enquiry - ${data.name}`;
       const emailBody = message;
-      const emailUrl = `mailto:sales@impex.example?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      const emailUrl = `mailto:ifpd@impexappliances.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
       // Open both WhatsApp and Email
       window.open(whatsappUrl, "_blank");

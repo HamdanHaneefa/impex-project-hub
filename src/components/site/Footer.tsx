@@ -23,18 +23,18 @@ export function Footer() {
               Contact Us
             </p>
             <a
-              href="tel:+910000000000"
+              href="tel:+919778665499"
               className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4" />
-              +91 00000 00000
+              +91 97786 65499
             </a>
             <a
-              href="mailto:sales@impex.example"
+              href="mailto:ifpd@impexappliances.com"
               className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
             >
               <Mail className="h-4 w-4" />
-              sales@impex.example
+              ifpd@impexappliances.com
             </a>
           </div>
 
