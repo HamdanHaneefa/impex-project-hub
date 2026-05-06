@@ -31,8 +31,10 @@ import {
   Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import classroom from "@/assets/classroom.jpg";
-import meeting from "@/assets/meeting.jpg";
+
+const classroom = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/e_class.jpeg";
+const meeting = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/edu_ai_learning_app.jpeg";
+const whiteboardAI = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/white_board_ai.jpeg";
 
 function SectionHeader({
   eyebrow,
@@ -44,10 +46,10 @@ function SectionHeader({
   subtitle?: string;
 }) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-3xl mx-auto text-center lg:text-left">
       <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-primary">{eyebrow}</p>
-      <h2 className="mt-2 sm:mt-3 text-2xl sm:text-4xl font-bold text-foreground leading-tight">{title}</h2>
-      {subtitle && <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">{subtitle}</p>}
+      <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">{title}</h2>
+      {subtitle && <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>}
     </div>
   );
 }
@@ -73,7 +75,7 @@ function FeatureCard({
 }
 
 // Section wrapper with consistent mobile-friendly spacing
-const SECTION = "py-12 sm:py-20 md:py-28";
+const SECTION = "py-16 sm:py-24 md:py-32";
 const CONTAINER = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
 // Image showcase frame — adds breathing room around product visuals
 const IMAGE_FRAME =
@@ -188,22 +190,46 @@ export function Features() {
       {/* Section 2 & 3: Whiteboard + AI */}
       <section id="whiteboard" className={`${SECTION} bg-background`}>
         <div className={CONTAINER}>
-          <Reveal>
-            <SectionHeader
-              eyebrow="02 · Digital Whiteboard"
-              title="A whiteboard, reimagined for the AI era."
-              subtitle="High-density multi-touch, smart recognition and a built-in library of templates — designed to keep your ideas flowing."
-            />
-          </Reveal>
-          <div className="mt-6 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-            {whiteboardFeatures.map((f, i) => (
-              <Reveal key={f.title} delay={i * 0.06}>
-                <FeatureCard {...f} />
-              </Reveal>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <Reveal>
+              <div>
+                <SectionHeader
+                  eyebrow="02 · Digital Whiteboard"
+                  title="A whiteboard, reimagined for the AI era."
+                  subtitle="High-density multi-touch, smart recognition and a built-in library of templates — designed to keep your ideas flowing."
+                />
+                <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {whiteboardFeatures.map((f, i) => (
+                    <div key={f.title} className="rounded-xl border border-border bg-card p-4 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all">
+                      <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground shadow-brand">
+                        <f.icon className="h-4 w-4" />
+                      </div>
+                      <h3 className="mt-3 text-sm font-semibold text-foreground leading-snug">{f.title}</h3>
+                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{f.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="relative">
+                <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-3xl" />
+                <div className={IMAGE_FRAME}>
+                  <img
+                    src={whiteboardAI}
+                    alt="WhiteBoard AI with smart recognition"
+                    width={1280}
+                    height={800}
+                    loading="lazy"
+                    className="rounded-xl sm:rounded-2xl w-full h-auto"
+                  />
+                </div>
+              </div>
+            </Reveal>
           </div>
 
-          <div className="mt-12 sm:mt-20">
+          <div className="mt-16 sm:mt-24">
             <Reveal>
               <SectionHeader
                 eyebrow="03 · WhiteBoard AI"
