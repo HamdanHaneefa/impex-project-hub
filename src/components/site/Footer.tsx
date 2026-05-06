@@ -42,9 +42,6 @@ export function Footer() {
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} IMPEX. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Domain & hosting charges billed separately.
-            </p>
           </div>
         </div>
       </div>

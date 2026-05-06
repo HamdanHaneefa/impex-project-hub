@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Play, Volume2, VolumeX } from "lucide-react";
 
 interface PortraitVideoProps {
@@ -10,6 +10,31 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Force load the first frame on mobile
+    const loadThumbnail = () => {
+      video.load();
+      // Seek to 0.1 seconds to show first frame
+      video.currentTime = 0.1;
+    };
+
+    // Load thumbnail when video metadata is loaded
+    video.addEventListener("loadedmetadata", loadThumbnail);
+    
+    // Also try to load immediately
+    if (video.readyState >= 1) {
+      loadThumbnail();
+    }
+
+    return () => {
+      video.removeEventListener("loadedmetadata", loadThumbnail);
+    };
+  }, []);
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -36,7 +61,7 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
   return (
     <div
       onClick={togglePlay}
-      className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto cursor-pointer group rounded-2xl overflow-hidden shadow-elegant border border-white/10"
+      className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto cursor-pointer group rounded-2xl overflow-hidden shadow-elegant border border-white/10 bg-muted"
       style={{ aspectRatio: "9/16" }}
     >
       <video
@@ -46,17 +71,12 @@ export function PortraitVideo({ src, poster }: PortraitVideoProps) {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         className="w-full h-full object-cover"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        onLoadedData={(e) => {
-          // Show first frame as thumbnail
-          const video = e.currentTarget;
-          if (video.readyState >= 2) {
-            video.currentTime = 0.1;
-          }
-        }}
+        onLoadedData={() => setThumbnailLoaded(true)}
+        onSeeked={() => setThumbnailLoaded(true)}
       />
 
       {/* Gradient overlay */}

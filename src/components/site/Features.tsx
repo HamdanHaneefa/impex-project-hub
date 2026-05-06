@@ -41,6 +41,10 @@ const whiteboardAI = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object
 const zeroBondingVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7602.MOV";
 const aiCameraVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7603.MOV";
 
+// Poster images - using a frame from the video or a placeholder
+const zeroBondingPoster = whiteboardAI; // Using whiteboard image as fallback
+const aiCameraPoster = meeting; // Using meeting image as fallback
+
 function SectionHeader({
   eyebrow,
   title,
@@ -219,7 +223,7 @@ export function Features() {
 
             <Reveal delay={0.15}>
               <div className="flex justify-center">
-                <PortraitVideo src={zeroBondingVideo} />
+                <PortraitVideo src={zeroBondingVideo} poster={zeroBondingPoster} />
               </div>
             </Reveal>
           </div>
@@ -289,7 +293,7 @@ export function Features() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="flex justify-center">
-              <PortraitVideo src={aiCameraVideo} />
+              <PortraitVideo src={aiCameraVideo} poster={aiCameraPoster} />
             </div>
           </Reveal>
         </div>
