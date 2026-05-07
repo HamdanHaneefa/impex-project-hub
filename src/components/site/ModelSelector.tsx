@@ -46,9 +46,14 @@ const specs: Record<Size, { brightness: string; weight: string; vesa: string; pp
 export function ModelSelector() {
   const [variant, setVariant] = useState<Variant>("xLearnAI");
   const [size, setSize] = useState<Size>("75");
+  const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
   const data = variantData[variant];
   const Icon = data.icon;
   const spec = specs[size];
+
+  const handleImageLoad = (imageSrc: string) => {
+    setImageLoaded(prev => ({ ...prev, [imageSrc]: true }));
+  };
 
   return (
     <section id="models" className="py-10 sm:py-24 md:py-32 bg-background">
@@ -133,13 +138,23 @@ export function ModelSelector() {
               >
                 <div className="absolute -inset-4 sm:-inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-[2rem]" />
                 <div className="relative rounded-xl sm:rounded-3xl bg-gradient-subtle border border-border p-2.5 sm:p-5 lg:p-6 shadow-elegant">
+                  {/* Loading skeleton */}
+                  {!imageLoaded[data.image] && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-muted/50 rounded-lg sm:rounded-2xl animate-pulse">
+                      <div className="text-muted-foreground">Loading...</div>
+                    </div>
+                  )}
                   <img
                     src={data.image}
                     alt={`${variant} in action`}
                     width={1280}
                     height={800}
-                    loading="lazy"
-                    className="w-full h-auto rounded-lg sm:rounded-2xl"
+                    loading="eager"
+                    fetchPriority="high"
+                    onLoad={() => handleImageLoad(data.image)}
+                    className={`w-full h-auto rounded-lg sm:rounded-2xl transition-opacity duration-300 ${
+                      imageLoaded[data.image] ? 'opacity-100' : 'opacity-0'
+                    }`}
                   />
                 </div>
               </motion.div>

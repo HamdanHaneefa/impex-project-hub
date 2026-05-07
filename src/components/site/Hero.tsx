@@ -87,6 +87,7 @@ export function Hero() {
                 height={1080}
                 className="w-full h-auto rounded-xl sm:rounded-2xl"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
           </motion.div>

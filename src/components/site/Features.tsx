@@ -347,7 +347,8 @@ export function Features() {
                   alt="Edu AI Learning App on xLearnAI"
                   width={1280}
                   height={800}
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   className="rounded-xl sm:rounded-2xl w-full h-auto"
                 />
               </div>
