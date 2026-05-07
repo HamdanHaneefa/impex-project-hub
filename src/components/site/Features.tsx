@@ -33,9 +33,9 @@ import {
 import { Reveal } from "./Reveal";
 import { PortraitVideo } from "./PortraitVideo";
 
-const classroom = "/images/IMAGE FOR IFPD LANDING PAGE 02.jpg.jpeg";
+const classroom = "/images/IMAGE FOR IFPD LANDING PAGE 04.jpg.jpeg";
 const meeting = "/images/IMAGE FOR IFPD LANDING PAGE 03.jpg.jpeg";
-const whiteboardAI = "/images/IMAGE FOR IFPD LANDING PAGE 04.jpg.jpeg";
+const whiteboardAI = "/images/IMAGE FOR IFPD LANDING PAGE 02.jpg.jpeg";
 
 // Video URLs
 const zeroBondingVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7602.MOV";

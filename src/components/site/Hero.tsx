@@ -76,7 +76,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative order-first lg:order-last"
+            className="relative order-first lg:order-last hidden lg:block"
           >
             <div className="absolute -inset-4 sm:-inset-6 bg-gradient-primary opacity-25 blur-3xl rounded-[2rem]" />
             <div className="relative rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 backdrop-blur p-2.5 sm:p-4 shadow-elegant">
