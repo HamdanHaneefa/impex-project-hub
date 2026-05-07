@@ -12,8 +12,8 @@ const quickSpecs = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-hero text-white pt-16 sm:pt-20 pb-8 sm:pb-12">
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
+    <section id="top" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-hero text-white pt-16 sm:pt-20 pb-8 sm:pb-12 w-full">
+      <div className="absolute inset-0 opacity-30 pointer-events-none overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[40rem] h-[40rem] rounded-full bg-primary blur-[120px]" />
         <div className="absolute -bottom-40 -left-40 w-[35rem] h-[35rem] rounded-full bg-primary-glow blur-[120px]" />
       </div>

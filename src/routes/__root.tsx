@@ -23,6 +23,10 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  component: () => <Outlet />,
+  component: () => (
+    <div className="overflow-x-hidden w-full">
+      <Outlet />
+    </div>
+  ),
   notFoundComponent: NotFoundComponent,
 });
