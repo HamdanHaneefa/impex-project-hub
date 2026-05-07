@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Video, Check } from "lucide-react";
 
-const classroom = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/e_class.jpeg";
-const meeting = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/edu_ai_learning_app.jpeg";
+const classroom = "/images/IMAGE FOR IFPD LANDING PAGE 02.jpg.jpeg";
+const meeting = "/images/IMAGE FOR IFPD LANDING PAGE 03.jpg.jpeg";
 
 type Variant = "xLearnAI" | "xMeetAI";
 type Size = "65" | "75" | "86";

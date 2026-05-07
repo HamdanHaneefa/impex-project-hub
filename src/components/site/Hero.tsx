@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, PlayCircle, Monitor, Hand, Cpu, ShieldCheck } from "lucide-react";
 
-const heroImg = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/ai_interative_display.jpeg";
+const heroImg = "/images/IMAGE FOR IFPD LANDING PAGE 01.jpg.jpeg";
 
 const quickSpecs = [
   { icon: Monitor, label: "4K Ultra HD" },
@@ -45,7 +45,7 @@ export function Hero() {
                 href="#enquiry"
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 shadow-brand transition-all"
               >
-                Request a Demo
+                Request Demo
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a

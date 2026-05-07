@@ -33,9 +33,9 @@ import {
 import { Reveal } from "./Reveal";
 import { PortraitVideo } from "./PortraitVideo";
 
-const classroom = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/e_class.jpeg";
-const meeting = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/edu_ai_learning_app.jpeg";
-const whiteboardAI = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/white_board_ai.jpeg";
+const classroom = "/images/IMAGE FOR IFPD LANDING PAGE 02.jpg.jpeg";
+const meeting = "/images/IMAGE FOR IFPD LANDING PAGE 03.jpg.jpeg";
+const whiteboardAI = "/images/IMAGE FOR IFPD LANDING PAGE 04.jpg.jpeg";
 
 // Video URLs
 const zeroBondingVideo = "https://iikjmeiitqskktdnxpcd.supabase.co/storage/v1/object/public/Impex_Page_Files/IMG_7602.MOV";

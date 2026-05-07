@@ -9,6 +9,7 @@ import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { FAQ } from "@/components/site/FAQ";
 import { Footer } from "@/components/site/Footer";
 import { StickyMobileCTA } from "@/components/site/StickyMobileCTA";
+import { Industries } from "@/components/site/Industries";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -22,6 +23,7 @@ function Index() {
         <Hero />
         <ModelSelector />
         <Features />
+        <Industries />
         <ComparisonTable />
         <TechnicalSpecs />
         <EnquiryForm />
