@@ -26,16 +26,12 @@ import {
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   phone: z.string().min(10, "Please enter a valid phone number"),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().optional(),
   organisation: z.string().min(2, "Organisation name is required"),
-  model: z.enum(["xLearnAI", "xMeetAI", "Both"], {
-    required_error: "Please select a model",
-  }),
-  size: z.enum(["65", "75", "86", "Multiple"], {
-    required_error: "Please select a size",
-  }),
-  quantity: z.string().min(1, "Quantity is required"),
-  purpose: z.string().min(10, "Please provide more details about your requirements"),
+  model: z.string().optional(),
+  size: z.string().optional(),
+  quantity: z.string().optional(),
+  purpose: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -63,18 +59,18 @@ export function EnquiryForm() {
     const message = `*New IMPEX xSeries Enquiry*
 
 *Customer Details:*
-Name: ${data.name}
-Phone: ${data.phone}
-Email: ${data.email}
-Organisation: ${data.organisation}
+Name: ${data.name || 'Not provided'}
+Phone: ${data.phone || 'Not provided'}
+Email: ${data.email || 'Not provided'}
+Organisation: ${data.organisation || 'Not provided'}
 
 *Product Requirements:*
-Model: ${data.model}
-Size: ${data.size}"
-Quantity: ${data.quantity}
+Model: ${data.model || 'Not specified'}
+Size: ${data.size ? data.size + '"' : 'Not specified'}
+Quantity: ${data.quantity || 'Not specified'}
 
-*Purpose/Requirements:*
-${data.purpose}
+*Requirements:*
+${data.purpose || 'Not provided'}
 
 ---
 Submitted via IMPEX xSeries Website
@@ -86,14 +82,14 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
       
       // Create form data
       const formData = new URLSearchParams();
-      formData.append('name', data.name);
-      formData.append('phone', data.phone);
-      formData.append('email', data.email);
-      formData.append('organisation', data.organisation);
-      formData.append('model', data.model);
-      formData.append('size', data.size);
-      formData.append('quantity', data.quantity);
-      formData.append('purpose', data.purpose);
+      formData.append('name', data.name || '');
+      formData.append('phone', data.phone || '');
+      formData.append('email', data.email || '');
+      formData.append('organisation', data.organisation || '');
+      formData.append('model', data.model || '');
+      formData.append('size', data.size || '');
+      formData.append('quantity', data.quantity || '');
+      formData.append('purpose', data.purpose || '');
 
       // Send to Google Sheets
       const sheetUrl = `${GOOGLE_SCRIPT_URL}?${formData.toString()}`;
@@ -189,7 +185,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email Address *</FormLabel>
+                          <FormLabel>Email Address</FormLabel>
                           <FormControl>
                             <Input type="email" placeholder="your.email@company.com" {...field} />
                           </FormControl>
@@ -219,7 +215,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                       name="model"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Model *</FormLabel>
+                          <FormLabel>Preferred Model</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
@@ -242,7 +238,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                       name="size"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Size *</FormLabel>
+                          <FormLabel>Preferred Size</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
@@ -266,7 +262,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                       name="quantity"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Quantity *</FormLabel>
+                          <FormLabel>Quantity</FormLabel>
                           <FormControl>
                             <Input type="number" min="1" placeholder="1" {...field} />
                           </FormControl>
@@ -281,7 +277,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                     name="purpose"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Purpose / Requirements *</FormLabel>
+                        <FormLabel>Requirements</FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your use case, installation requirements, or any specific questions..."
@@ -313,7 +309,7 @@ ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
                   </Button>
 
                   <p className="text-xs text-muted-foreground">
-                    * Required fields. Your enquiry will be saved to our database and sent via WhatsApp.
+                    * Required fields: Name, Phone, Organisation
                   </p>
                 </form>
               </Form>
