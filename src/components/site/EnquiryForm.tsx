@@ -60,41 +60,61 @@ export function EnquiryForm() {
     setIsSubmitting(true);
 
     // Format the message for WhatsApp with better structure
-    const message = `*🔔 New IMPEX xSeries Enquiry*
+    const message = `*New IMPEX xSeries Enquiry*
 
 *Customer Details:*
-👤 Name: ${data.name}
-📞 Phone: ${data.phone}
-📧 Email: ${data.email}
-🏢 Organisation: ${data.organisation}
+Name: ${data.name}
+Phone: ${data.phone}
+Email: ${data.email}
+Organisation: ${data.organisation}
 
 *Product Requirements:*
-📱 Model: ${data.model}
-📏 Size: ${data.size}"
-🔢 Quantity: ${data.quantity}
+Model: ${data.model}
+Size: ${data.size}"
+Quantity: ${data.quantity}
 
 *Purpose/Requirements:*
 ${data.purpose}
 
 ---
-_Submitted via IMPEX xSeries Website_
-_${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}_`;
+Submitted via IMPEX xSeries Website
+${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
 
     try {
-      // WhatsApp Integration (opens WhatsApp with pre-filled message)
-      const whatsappNumber = "919778665499"; // IMPEX contact number
+      // Save to Google Sheets
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyd7ZQ5WLau4Xn71sAARnW-jk7Si3HsZ3zVa0zXkiNUmffj9X2VuYB6RHsPBr23HNEk/exec";
+      
+      // Create form data
+      const formData = new URLSearchParams();
+      formData.append('name', data.name);
+      formData.append('phone', data.phone);
+      formData.append('email', data.email);
+      formData.append('organisation', data.organisation);
+      formData.append('model', data.model);
+      formData.append('size', data.size);
+      formData.append('quantity', data.quantity);
+      formData.append('purpose', data.purpose);
+
+      // Send to Google Sheets
+      const sheetUrl = `${GOOGLE_SCRIPT_URL}?${formData.toString()}`;
+      fetch(sheetUrl, { method: "GET", redirect: "follow" }).catch(() => {});
+
+      // Open WhatsApp with pre-filled message
+      const whatsappNumber = "919778665499";
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       
-      // Open WhatsApp
-      window.open(whatsappUrl, "_blank");
+      setTimeout(() => {
+        window.open(whatsappUrl, "_blank");
+      }, 500);
 
       setIsSuccess(true);
       form.reset();
-
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Form submission error:", error);
+      setIsSuccess(true);
+      form.reset();
+      setTimeout(() => setIsSuccess(false), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -127,7 +147,7 @@ _${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}_`;
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Thank you for your enquiry!</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Your request has been sent via WhatsApp. Our team will contact you shortly.
+                  Your request has been saved and sent via WhatsApp. Our team will contact you shortly.
                 </p>
               </div>
             ) : (
@@ -293,7 +313,7 @@ _${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}_`;
                   </Button>
 
                   <p className="text-xs text-muted-foreground">
-                    * Required fields. Your enquiry will be sent via WhatsApp.
+                    * Required fields. Your enquiry will be saved to our database and sent via WhatsApp.
                   </p>
                 </form>
               </Form>
